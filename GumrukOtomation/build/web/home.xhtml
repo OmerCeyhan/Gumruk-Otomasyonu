@@ -1,52 +1,44 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<!DOCTYPE html>
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:f ="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html">
     <h:head>
+        
         <title>Gümrük Otomasyonu</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" href="resources/style.css" type="text/css" />
     </h:head>
-    <h:body style="background-color: #00ffcc">
-        <h:form id="userForm">
-            <h:panelGrid columns="2">
-                <h:outputText value="İsim"></h:outputText>
-                <h:inputText id="isim" value="#{user.isim}" required="true" requiredMessage="You must enter your name." 
-                             validatorMessage="Name must be shorter than 30 characters">
-                    <f:validateLength maximum="30"/>
-            </h:inputText>
-
-            <h:outputText value="Soyisim"></h:outputText>
-            <h:inputText id="soyisim" value="#{user.soyisim}" required="true" requiredMessage="You must enter your surname." 
-                         validatorMessage="Your surname must be shorter than 30 characters.">
-                <f:validateLength maximum="30"/>
-            </h:inputText>
-
-            <h:outputText value="E-mail"></h:outputText>
-            <h:inputText id="email" value="#{user.email}" required="true" 
-                         requiredMessage="You must enter your e-mail." validatorMessage="Invalid e-mail format.">
-                <f:validateRegex pattern="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"/>
-            </h:inputText>
-
-            <h:outputText value="Kullanıcı Adı"></h:outputText>
-            <h:inputText id="kullaniciAdi" value="#{user.kullaniciAdi}" required="true" requiredMessage="You must enter a username"
-                         validatorMessage="Your username must be shorter than 30 characters">
-                <f:validateLength maximum="30"/>
-            </h:inputText>
-
-            <h:outputText value="Şifre"/>
-            <h:inputText id="sifre" value="#{user.sifre}" required="true" requiredMessage="You must enter a password"
-                         validatorMessage="Your password must be shorter than 30 characters.">
-                <f:validateLength maximum="30"/>
-            </h:inputText>
-
-            <h:commandButton value="Kayıt ol" action="register"></h:commandButton>
-        </h:panelGrid>
-    </h:form>
+    <h:body>
+        <nav role='navigation'>
+<center>
+  <ul>
+    <li><a href="#">Anasayfa</a></li>
+    <li><a href="araclar.xhtml">Araçlar</a>
+      <ul>
+        <li><a href="aracbilgi.xhtml">Araç Bilgileri</a></li>
+      </ul>
+    </li>
+	<li><a href="kayitekleme.xhtml">Kayıt Ekleme</a>
+      <ul>
+        <li><a href="giriscikisekleme.xhtml">Giriş-Çıkış Kaydı Ekleme</a></li>
+		<li><a href="ihbarekleme.xhtml">İhbar Kaydı Ekleme</a></li>
+      </ul>
+    </li>
+	<li><a href="kayitsorgu.xhtml">Kayıt Sorgulama</a>
+      <ul>
+        <li><a href="giriscikissorgu.xhtml">Giriş-Çıkış Kaydı</a></li>
+		<li><a href="ihbarsorgu.xhtml">İhbar Kaydı</a></li>
+      </ul>
+    </li>
+	<li><a href="personel.xhtml">Personel Modülü</a>
+    </li>
+  </ul>
+  </center>
+</nav>  
+        <div class="icerik">
+  </div>
 </h:body>
 </html>
