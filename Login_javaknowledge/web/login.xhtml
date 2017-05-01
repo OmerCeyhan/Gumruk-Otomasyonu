@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Giriş Sayfası</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h:panelGrid id="panel" columns="3">
+                <f:facet name="header">
+                    <h:outputText value="Sisteme Giriş"/>
+                </f:facet>
+                
+                <h:outputLabel value="Kullanıcı Adı" />
+                <h:inputText id="usernameInputText" required="true" requiredMessage="Lütfen Kullanıcı Adınızı Giriniz !" value="#{loginBean.username}" validatorMessage="Kullanıcı Adı Minimum 5 Maksimum 10 karakterli olmalıdır" >
+                    <f:validateLength maximum="10" minimum="5" />
+                </h:inputText>
+                <h:message for="usernameInputText" />
+                
+                <h:outputLabel value="Şifre" />
+                <h:inputSecret id="passwordInputSecret" required="true" requiredMessage="Lütfen Şifrenizi Giriniz !" value="#{loginBean.password}" validatorMessage="Şifreniz Minimum 6 karakterli olmalıdır" >
+                    <f:validateLength minimum="6" />
+                </h:inputSecret>
+                <h:message for="passwordInputSecret" />
+                
+                <f:facet name="footer">
+                    <h:commandButton value="Giriş" action="#{loginBean.loginProject}" />
+                </f:facet>
+                
+            </h:panelGrid>
+        </h:form>
+    </h:body>
+</html>
+
