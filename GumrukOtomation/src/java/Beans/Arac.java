@@ -31,7 +31,7 @@ import javax.ws.rs.core.Response;
  * @author Brainiac
  */
 @ManagedBean(name = "arac")
-@RequestScoped
+@SessionScoped
 public class Arac {
 
     private String plaka;
@@ -40,6 +40,8 @@ public class Arac {
     private String firma;
     private String model;
     //jdbc:derby://localhost:1527/gumrukotomasyon [APP on APP]
+
+
 
     public String getPlaka() {
         return plaka;
@@ -82,15 +84,17 @@ public class Arac {
     }
 
     public String aracEkle() throws SQLException, NamingException {
+       
         try {
             Class.forName("com.mysql.jdbc.Driver");
         } catch (ClassNotFoundException e) {
             System.out.println(e);
         }
         try {
+
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/gumruk", "root", "omer1996");
 
-            String sql = "INSERT INTO ARAC (plaka, arac_Cinsi, ulkesi, firma, model) values(?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO ARAC (Plaka, Arac_Cinsi, Ulkesi, Firma, Model) values(?, ?, ?, ?, ?)";
             PreparedStatement ps = con.prepareStatement(sql);
 
             ps.setString(1, getPlaka());
@@ -100,11 +104,44 @@ public class Arac {
             ps.setString(5, getModel());
 
             ps.executeUpdate();
-
+            System.out.println("SQL executed...");
         } catch (SQLException e) {
             System.err.println(e);
         }
-        
-        return "aracbilgi";
+
+        return "home?faces-redirect=true";
+        // check whether dataSource was injected by the server
+        /*if (dataSource == null) {
+            throw new SQLException("Unable to obtain DataSource");
+        }
+
+        // obtain a connection from the connection pool
+        Connection connection = dataSource.getConnection();
+
+        // check whether connection was successful
+        if (connection == null) {
+            throw new SQLException("Unable to connect to DataSource");
+        }
+
+        try {
+            // create a PreparedStatement to insert a new address book entry
+            PreparedStatement addEntry
+                    = connection.prepareStatement("INSERT INTO ARAC (Plaka, Arac_Cinsi, Ulkesi, Firma, Model) values(?, ?, ?, ?, ?)");
+
+            // specify the PreparedStatement's arguments
+            addEntry.setString(1, getPlaka());
+            addEntry.setString(2, getAracCinsi());
+            addEntry.setString(3, getUlkesi());
+            addEntry.setString(4, getFirma());
+            addEntry.setString(5, getModel());
+
+            addEntry.executeUpdate(); // insert the entry
+            return "home"; // go back to index.xhtml home page
+        } // end try
+        finally {
+            connection.close(); // return this connection to pool
+        } // end finally
+
+         */
     }
 }

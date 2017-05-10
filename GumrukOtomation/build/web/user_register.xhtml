@@ -19,34 +19,34 @@ and open the template in the editor.
                 <h:inputText id="isim" value="#{user.isim}" required="true" requiredMessage="You must enter your name." 
                              validatorMessage="Name must be shorter than 30 characters">
                     <f:validateLength maximum="30"/>
-            </h:inputText>
+                </h:inputText>
 
-            <h:outputText value="Soyisim"></h:outputText>
-            <h:inputText id="soyisim" value="#{user.soyisim}" required="true" requiredMessage="You must enter your surname." 
-                         validatorMessage="Your surname must be shorter than 30 characters.">
-                <f:validateLength maximum="30"/>
-            </h:inputText>
+                <h:outputText value="Soyisim"></h:outputText>
+                <h:inputText id="soyisim" value="#{user.soyisim}" required="true" requiredMessage="You must enter your surname." 
+                             validatorMessage="Your surname must be shorter than 30 characters.">
+                    <f:validateLength maximum="30"/>
+                </h:inputText>
 
-            <h:outputText value="E-mail"></h:outputText>
-            <h:inputText id="email" value="#{user.email}" required="true" 
-                         requiredMessage="You must enter your e-mail." validatorMessage="Invalid e-mail format.">
-                <f:validateRegex pattern="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"/>
-            </h:inputText>
+                <h:outputText value="E-mail"></h:outputText>
+                <h:inputText id="email" value="#{user.email}" required="true" 
+                             requiredMessage="You must enter your e-mail." validatorMessage="Invalid e-mail format.">
+                    <f:validateRegex pattern="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"/>
+                </h:inputText>
 
-            <h:outputText value="Kullanıcı Adı"></h:outputText>
-            <h:inputText id="kullaniciAdi" value="#{user.kullaniciAdi}" required="true" requiredMessage="You must enter a username"
-                         validatorMessage="Your username must be shorter than 30 characters">
-                <f:validateLength maximum="30"/>
-            </h:inputText>
+                <h:outputText value="Kullanıcı Adı"></h:outputText>
+                <h:inputText id="kullaniciAdi" value="#{user.kullaniciAdi}" required="true" requiredMessage="You must enter a username"
+                             validatorMessage="Your username must be shorter than 30 characters">
+                    <f:validateLength maximum="30"/>
+                </h:inputText>
 
-            <h:outputText value="Şifre"/>
-            <h:inputText id="sifre" value="#{user.sifre}" required="true" requiredMessage="You must enter a password"
-                         validatorMessage="Your password must be shorter than 30 characters.">
-                <f:validateLength maximum="30"/>
-            </h:inputText>
+                <h:outputText value="Şifre"/>
+                <h:inputText id="sifre" value="#{user.sifre}" required="true" requiredMessage="You must enter a password"
+                             validatorMessage="Your password must be shorter than 30 characters.">
+                    <f:validateLength maximum="30"/>
+                </h:inputText>
 
-            <h:commandButton value="Kayıt ol" action="register"></h:commandButton>
-        </h:panelGrid>
-    </h:form>
-</h:body>
+                <h:commandButton value="Kayıt ol" action="register"></h:commandButton>
+            </h:panelGrid>
+        </h:form>
+    </h:body>
 </html>
