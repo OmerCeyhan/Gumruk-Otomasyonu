@@ -17,106 +17,61 @@ and open the template in the editor.
     <h:body>
         <nav role='navigation'>
 <center>
-  <ul>
-    <li><a href="index.html">Anasayfa</a></li>
-    <li><a href="araclar.xhtml">Araçlar</a>
-      <ul>
-        <li><a href="aracbilgi.xhtml">Araç Bilgileri</a></li>
-        <li><a href="surucubilgi.xhtml">Sürücü Bilgileri</a></li>
-      </ul>
-    </li>
-	<li><a href="kayitekleme.xhtml">Kayıt Ekleme</a>
-      <ul>
-        <li><a href="giriscikisekleme.xhtml">Giriş-Çıkış Kaydı Ekleme</a></li>
-		<li><a href="#">İhbar Kaydı Ekleme</a></li>
-      </ul>
-    </li>
-	<li><a href="kayitsorgu.xhtml">Kayıt Sorgulama</a>
-      <ul>
-        <li><a href="giriscikissorgu.xhtml">Giriş-Çıkış Kaydı</a></li>
-		<li><a href="ihbarsorgu.xhtml">İhbar Kaydı</a></li>
-      </ul>
-    </li>
-	<li><a href="personel.xhtml">Personel Modülü</a>
-    </li>
-  </ul>
-  </center>
+                <ul>
+                    <li><a href="index.xhtml">Anasayfa</a></li>
+                    <li><a href="araclar.xhtml">Araç Bilgileri</a>
+                    </li>
+                    <li><a href="#">Kayıt Ekleme</a>
+                        <ul>
+                            <li><a href="giriscikisekleme.xhtml">Giriş-Çıkış Kaydı Ekleme</a></li>
+                            <li><a href="#">İhbar Kaydı Ekleme</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Kayıt Sorgulama</a>
+                        <ul>
+                            <li><a href="giriscikissorgu.xhtml">Giriş-Çıkış Kaydı</a></li>
+                            <li><a href="ihbarsorgu.xhtml">İhbar Kaydı</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Personel Modülü</a>
+                        <ul>
+                            <li><a href="personelekle.xhtml">Personel Ekle</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li><a href="login.xhtml" style="float: right">Çıkış</a></li> 
+                </ul>
+            </center>
 </nav>  
         <div class="icerik">
             
-                    <center> <legend>Araç Bilgileri</legend> 
-                   
-                    <fieldset><h:form class="userForm">
-                     <h:panelGrid columns="4">
-                       <h:outputText value="Aracın Cinsi:"></h:outputText>
-                       <h:inputText id="araccinsi" value="#{arac.aracCinsi}" required="true">
-                        <f:validateLength maximum="30"/>
-                    </h:inputText>
-                         <h:outputText value="Ülkesi:"></h:outputText>
-                         <h:inputText id="ulke" value="#{arac.ulkesi}" required="true">
-                        <f:validateLength maximum="30"/>
-                         </h:inputText>
-                      <h:outputText value="Plakası:"></h:outputText>
-                      <h:inputText id="plaka" value="#{arac.plaka}" required="true">
-                        <f:validateLength maximum="30"/>
-                    </h:inputText>
-                         <h:outputText value="Bağlı Olduğu Firma:"></h:outputText>
-                         <h:inputText id="firma" value="#{arac.firma}" required="true">
-                        <f:validateLength maximum="30"/>
-                         </h:inputText>
-               </h:panelGrid>
-                   
-                </h:form>  </fieldset> </center> 
-            <br> </br>
-            
-              <center> <legend>Sürücüye Ait Bilgiler</legend> 
-                   
-                    <fieldset><h:form class="userForm">
-                     <h:panelGrid columns="4">
-                       <h:outputText value="Adı:"></h:outputText>
-                       <h:inputText id="adi" value="#{surucu.ad}" required="true">
-                        <f:validateLength maximum="30"/>
-                    </h:inputText>
-                         <h:outputText value="Soyadı:"></h:outputText>
-                         <h:inputText id="soyadi" value="#{surucu.soyad}" required="true">
-                        <f:validateLength maximum="30"/>
-                         </h:inputText>
-                      <h:outputText value="Pasaport No:"></h:outputText>
-                      <h:inputText id="pasaport" value="#{surucu.pasaportNo}" required="true">
-                        <f:validateLength maximum="30"/>
-                    </h:inputText>
-                         <h:outputText value="Uyruk:"></h:outputText>
-                         <h:inputText id="uyruk" value="#{surucu.uyruk}" required="true">
-                        <f:validateLength maximum="30"/>
-                         </h:inputText>
-               </h:panelGrid>
-                            </h:form>  </fieldset> </center> 
-              <br> </br>
-              <center> <legend>Yük ve Eşya Bilgileri</legend> 
-                 
-                    <fieldset><h:form class="userForm">
-                     <h:panelGrid columns="4">
-                       <h:outputText value="Yük Cinsi:"></h:outputText>
-                       <h:inputText id="yukcinsi" value="#{tasima.yukCinsi}" required="true">
-                        <f:validateLength maximum="30"/>
-                    </h:inputText>
-                         <h:outputText value="Yük Miktarı:"></h:outputText>
-                         <h:inputText id="yukmiktari" value="#{tasima.miktar}" required="true">
-                        <f:validateLength maximum="30"/>
-                         </h:inputText>
-                      <h:outputText value="Ölçü Birimi:"></h:outputText>
-                      <h:inputText id="olcubirimi" value="#{tasima.olcuBirimi}" required="true">
-                        <f:validateLength maximum="30"/>
-                      </h:inputText>
-                      
-                      
+                    <center> <legend>İhbar Bilgileri</legend> 
                         
-               </h:panelGrid>
-                   
-                </h:form>  </fieldset> </center>
-              
-                <br> </br>
-             <center><h:commandButton value="Kayıt İçin Tıklayın" action="#{ihbar.ihbarEkle()}" ><f:ajax /></h:commandButton></center>
+                <fieldset>
+                    <h:form class="userForm" style="border: 3px solid gray">
+                        <h:panelGrid columns="2">
+                            <h:outputText value="İhbar No:"></h:outputText>
+                            <h:inputText class="txtbox2" id="ihbarno" value="#{ihbar.ihbarNo}" required="true">
+                            </h:inputText>
+
+                            <h:outputText value="Plaka:"></h:outputText>
+                            <h:inputText class="txtbox2" id="plaka" value="#{ihbar.plaka}" required="true"></h:inputText>
+
+                            <h:outputText value="İhbar Sebebi"></h:outputText>
+                            <h:inputText class="txtbox2" id="ihbarsebebi" value="#{ihbar.ihbarSebebi}" required="true"></h:inputText>
+
+                            <h:outputText value="İhbar Tarihi"></h:outputText>
+                            <h:inputText class="txtbox2" id="ihbartarihi" value="#{ihbar.ihbarTarihi}" required="true"></h:inputText>
+
+                            <h:outputText value="İhbar Sayisi"></h:outputText>
+                            <h:inputText class="txtbox2" id="ihbarsayisi" value="#{ihbar.ihbarSayisi}" required="true"></h:inputText>
+                        </h:panelGrid>
+                        <center>
+                            <h:commandButton class="btn btn-text-dark-gray" value="Kayıt İçin Tıklayın" action="#{ihbar.ihbarEkle()}" ></h:commandButton>
+                        </center>
+                    </h:form>  
+                </fieldset> </center> <br> </br>
+            
   </div>
 </h:body>
 </html>

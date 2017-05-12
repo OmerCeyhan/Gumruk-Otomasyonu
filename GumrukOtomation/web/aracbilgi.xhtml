@@ -8,6 +8,7 @@ and open the template in the editor.
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:f ="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html">
+    
     <h:head>
 
         <title>Gümrük Otomasyonu</title>
@@ -18,30 +19,44 @@ and open the template in the editor.
         <nav role='navigation'>
             <center>
                 <ul>
-                    <li><a href="home.xhtml">Anasayfa</a></li>
-                    <li><a href="araclar.xhtml">Araçlar</a>
-                        <ul>
-                            <li><a href="#">Araç Bilgileri</a></li>
-                        </ul>
+                    <li><a href="index.xhtml">Anasayfa</a></li>
+                    
+                    <li><a href="araclar.xhtml">Araç Bilgileri</a>
                     </li>
-                    <li><a href="kayitekleme.xhtml">Kayıt Ekleme</a>
+                    <li><a href="#">Kayıt Ekleme</a>
                         <ul>
                             <li><a href="giriscikisekleme.xhtml">Giriş-Çıkış Kaydı Ekleme</a></li>
                             <li><a href="ihbarekleme.xhtml">İhbar Kaydı Ekleme</a></li>
                         </ul>
                     </li>
-                    <li><a href="kayitsorgu.xhtml">Kayıt Sorgulama</a>
+                    <li><a href="#">Kayıt Sorgulama</a>
                         <ul>
                             <li><a href="giriscikissorgu.xhtml">Giriş-Çıkış Kaydı</a></li>
                             <li><a href="ihbarsorgu.xhtml">İhbar Kaydı</a></li>
                         </ul>
                     </li>
-                    <li><a href="personel.xhtml">Personel Modülü</a>
+                    <li><a href="#">Personel Modülü</a>
+                        <ul>
+                            <li><a href="personelekle.xhtml">Personel Ekle</a></li>
+                        </ul>
                     </li>
+                    <li><a href="login.xhtml" style="float: right">Çıkış</a></li> 
                 </ul>
             </center>
         </nav>  
+        
         <div class="icerik">
+            <h:form>
+                
+                <center>
+                    <br/>
+                    <p>Plâka Giriniz: </p><br/>
+                    <h:inputText class="txtbox" id="aracBilgiSorgula" value="#{arac.plaka}"/> <br/><br/>
+                    <h:commandButton class="btn btn-text-dark-grey" value="Sorgula" type="submit" action="araclar?faces-redirect=true"/>
+                </center>
+            </h:form>
         </div>
+        
     </h:body>
 </html>
+                

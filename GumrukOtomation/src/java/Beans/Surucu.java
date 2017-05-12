@@ -9,10 +9,12 @@ package Beans;
  *
  * @author Brainiac
  */
+import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -32,33 +34,45 @@ import javax.naming.NamingException;
  */
 @ManagedBean(name = "surucu")
 @SessionScoped
-public class Surucu {
+public class Surucu implements Serializable{
 
-    DataSource dataSource;
+  
 
     private String pasaportNo;
     private String ad;
     private String soyad;
     private String uyruk;
     
+    public String surucuEkle() throws SQLException, NamingException {
 
-    public Surucu() {
         try {
-            Context ctx = new InitialContext();
-            dataSource = (DataSource) ctx.lookup("jdbc:derby://localhost:1527/gumrukotomasyon");
-        } catch (NamingException e) {
-            e.printStackTrace();
+            Class.forName("com.mysql.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            System.out.println(e);
         }
-    }
+        try {
 
-    public DataSource getDataSource() {
-        return dataSource;
-    }
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/gumruk", "root", "omer1996");
 
-    public void setDataSource(DataSource dataSource) {
-        this.dataSource = dataSource;
-    }
+            String sql = "INSERT INTO SURUCU (Pasaport_No, Ad, Soyad, Uyruk) values(?, ?, ?, ?)";
+            PreparedStatement ps = con.prepareStatement(sql);
 
+            ps.setString(1, getPasaportNo());
+            ps.setString(2, getAd());
+            ps.setString(3, getSoyad());
+            ps.setString(4, getUyruk());
+            
+
+            ps.executeUpdate();
+            System.out.println("SQL executed...");
+        } catch (SQLException e) {
+            System.err.println(e);
+        }
+
+        return "home?faces-redirect=true";
+    }
+    
+    
     public String getPasaportNo() {
         return pasaportNo;
     }

@@ -39,11 +39,22 @@ and open the template in the editor.
                     </li>
                     <li><a href="personel.xhtml">Personel Modülü</a>
                     </li>
+                    
+                    <li><a href="login.xhtml" style="float: right">Çıkış</a></li> 
                 </ul>
+                
             </center>
         </nav>  
         <div class="icerik">
+            <center>
+                <h:form>
+                    <h:inputText class="txtbox" id="aracBilgiSorgula" value="#{ihbar.plaka}"/> <br/><br/>
+                    <h:commandButton class="btn btn-text-dark-grey" value="Sorgula" type="submit" action="#{ihbar.ihbarliMi()}"/>
+                </h:form>
+
+            </center>
+
         </div>
-        <h:outputText value="SELAM"/>
+
     </h:body>
 </html>

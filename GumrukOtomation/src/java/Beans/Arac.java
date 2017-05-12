@@ -5,6 +5,7 @@
  */
 package Beans;
 
+import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
@@ -14,6 +15,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Time;
 import javax.annotation.Resource;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
@@ -32,16 +34,24 @@ import javax.ws.rs.core.Response;
  */
 @ManagedBean(name = "arac")
 @SessionScoped
-public class Arac {
+public class Arac implements Serializable{
 
     private String plaka;
     private String aracCinsi;
     private String ulkesi;
     private String firma;
     private String model;
+    private String bulunacakArac;
+    
     //jdbc:derby://localhost:1527/gumrukotomasyon [APP on APP]
 
+    public String getBulunacakArac() {
+        return bulunacakArac;
+    }
 
+    public void setBulunacakArac(String bulunacakArac) {
+        this.bulunacakArac = bulunacakArac;
+    }
 
     public String getPlaka() {
         return plaka;
@@ -84,19 +94,18 @@ public class Arac {
     }
 
     public String aracEkle() throws SQLException, NamingException {
-       
+
         try {
             Class.forName("com.mysql.jdbc.Driver");
         } catch (ClassNotFoundException e) {
             System.out.println(e);
         }
         try {
-
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/gumruk", "root", "omer1996");
 
             String sql = "INSERT INTO ARAC (Plaka, Arac_Cinsi, Ulkesi, Firma, Model) values(?, ?, ?, ?, ?)";
             PreparedStatement ps = con.prepareStatement(sql);
-
+  
             ps.setString(1, getPlaka());
             ps.setString(2, getAracCinsi());
             ps.setString(3, getUlkesi());
@@ -143,5 +152,57 @@ public class Arac {
         } // end finally
 
          */
+    }
+
+    public String aracSil() throws SQLException, NamingException {
+
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            System.out.println(e);
+        }
+        try {
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/gumruk", "root", "omer1996");
+
+            String sql = "DELETE FROM ARAC WHERE Plaka=?";
+            PreparedStatement ps = con.prepareStatement(sql);
+
+            ps.setString(1, getBulunacakArac());
+
+            ps.executeUpdate();
+            System.out.println("SQL executed...");
+        } catch (SQLException e) {
+            System.err.println(e);
+        }
+
+        return "home?faces-redirect=true";
+    }
+    
+    public ResultSet findArac(){
+         try {
+            Class.forName("com.mysql.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            System.out.println(e);
+        }
+        try {
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/gumruk", "root", "omer1996");
+           PreparedStatement ps = con.prepareStatement(
+                    "select * from arac where plaka=?");
+            ps.setString(1, getPlaka());
+  
+  
+            ResultSet rs = ps.executeQuery();
+            System.out.println("SQL executed...");
+            if (rs.next()) // found
+            {
+                return rs;
+            }     
+            
+          
+        } catch (SQLException e) {
+            System.err.println(e);
+        }
+
+        return null;
     }
 }

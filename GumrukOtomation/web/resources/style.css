@@ -80,7 +80,72 @@ body {
   margin: 140px auto 0 auto;
   width: 700px;
   height:800px;
-     background-color:#ffffff;
-      opacity:0.3;
-      filter:alpha(opacity=60);
+  filter:alpha(opacity=60);
+}
+
+.btn {
+    border:none;
+    display:inline-block;
+    outline:0;
+    padding:8px 16px;
+    vertical-align:middle;
+    overflow:hidden;
+    text-decoration:none;
+    color:inherit;
+    background-color:inherit;
+    text-align:center;
+    cursor:pointer;
+    white-space:nowrap;
+    text-combine:horizontal;
+}
+.btn:hover {
+    box-shadow:0 8px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+}
+.btn-dark-grey,.btn-hover-dark-grey:hover,.btn-dark-gray,.btn-hover-dark-gray:hover {
+    color:#fff!important;
+    background-color:#616161!important;
+}
+
+.btn-text-dark-grey,.btn-hover-text-dark-grey:hover,.btn-text-dark-gray,.btn-hover-text-dark-gray:hover 
+
+{
+    color:#3a3a3a!important
+}
+
+.my-blue,.w3-hover-blue:hover {
+    color:#fff!important;
+    background-color:#2196F3!important
+}
+
+.txtbox {
+    padding: 8px 16px;
+    border: 3px solid gray;
+}
+
+.txtbox2 {
+    padding: 3px 3px;
+}
+
+.wellcome {
+  font-family: 'Gill Sans MT', sans-serif;
+  font-size: 60px;
+}
+.wellcome2 {
+  font-family: 'Gill Sans MT', sans-serif;
+  font-size: 40px;
+}
+.wellcome4 {
+  font-family: 'Gill Sans MT', sans-serif;
+  font-size: 60px;
+  color: brown;
+}
+
+.dtable {
+    padding: 5px 10px;
+    margin-top: 40px;
+}
+
+.omer {
+    padding-right: 10px;
+    margin-right: 10px;
 }

@@ -5,10 +5,12 @@
  */
 package Beans;
 
+import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -28,9 +30,8 @@ import javax.naming.NamingException;
  */
 @ManagedBean(name = "personel")
 @SessionScoped
-public class Personel {
+public class Personel implements Serializable{
 
-    DataSource dataSource;
     private String tcKimlik;
     private String kullaniciAdi;
     private String sifre;
@@ -38,26 +39,45 @@ public class Personel {
     private String personelSoyadi;
     private String email;
     private String adres;
-    private String dogumTarihi;
+    private String dogumTarihi; //DATEFIELD
     private String cinsiyet;
     private String personelTuru;
     private String telefon;
 
-    public Personel() {
+    public String personelEkle() throws SQLException, NamingException {
+
         try {
-            Context ctx = new InitialContext();
-            dataSource = (DataSource) ctx.lookup("jdbc:derby://localhost:1527/gumrukotomasyon");
-        } catch (NamingException e) {
-            e.printStackTrace();
+            Class.forName("com.mysql.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            System.out.println(e);
         }
-    }
+        try {
 
-    public DataSource getDataSource() {
-        return dataSource;
-    }
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/gumruk", "root", "omer1996");
 
-    public void setDataSource(DataSource dataSource) {
-        this.dataSource = dataSource;
+            String sql = "INSERT INTO PERSONEL (TC, Kullanici_Adi, Sifre, Personel_Adi, Personel_Soyadi, Email, Adres, Dogum_Tarihi, Cinsiyet, Personel_Turu, Telefon) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            PreparedStatement ps = con.prepareStatement(sql);
+
+            ps.setString(1, getTcKimlik());
+            ps.setString(2, getKullaniciAdi());
+            ps.setString(3, getSifre());
+            ps.setString(4, getPersonelAdi());
+            ps.setString(5, getPersonelSoyadi());
+            ps.setString(6, getEmail());
+            ps.setString(7, getAdres());
+            ps.setString(8, getDogumTarihi()); //DATEFIELD
+            ps.setString(9, getCinsiyet());
+            ps.setString(10, getPersonelTuru());
+            ps.setString(11, getTelefon());
+
+            ps.executeUpdate();
+            System.out.println("SQL executed...");
+        } catch (SQLException e) {
+            System.err.println(e);
+        }
+
+        return "home?faces-redirect=true";
+
     }
 
     public String getTcKimlik() {
@@ -147,5 +167,5 @@ public class Personel {
     public void setTelefon(String telefon) {
         this.telefon = telefon;
     }
-    
+
 }

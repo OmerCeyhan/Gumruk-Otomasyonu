@@ -14,35 +14,30 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <link rel="stylesheet" href="resources/style.css" type="text/css" />
     </h:head>
+    <style>
+        .wellcome3 {
+            font-family: 'Gill Sans MT', sans-serif;
+            font-size: 35px;
+        }
+    </style>
     <h:body>
         <nav role='navigation'>
             <center>
                 <ul>
-                    <li><a href="#">Anasayfa</a></li>
-                    <li><a href="araclar.xhtml">Araçlar</a>
-                        <ul>
-                            <li><a href="aracbilgi.xhtml">Araç Bilgileri</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="aracEkle.xhtml">Kayıt Ekleme</a>
-                        <ul>
-                            <li><a href="giriscikisekleme.xhtml">Giriş-Çıkış Kaydı Ekleme</a></li>
-                            <li><a href="ihbarekleme.xhtml">İhbar Kaydı Ekleme</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="kayitsorgu.xhtml">Kayıt Sorgulama</a>
-                        <ul>
-                            <li><a href="giriscikissorgu.xhtml">Giriş-Çıkış Kaydı</a></li>
-                            <li><a href="ihbarsorgu.xhtml">İhbar Kaydı</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="personel.xhtml">Personel Modülü</a>
-                    </li>
+                    <li><a href="login.xhtml">Personel Girişi</a></li> 
                 </ul>
             </center>
         </nav>  
         <div class="icerik">
-            <h:outputText value="ANA SAYFADASINIZ."/>>
+            <h:outputText class="wellcome" value="Biz Drop Database'iz!"/><br/>
+            <h:outputText class="wellcome2" value="We are the Drop Database!"/><br/>
+            <h:outputText class="wellcome3" value="Wir sind drop datenbank!"/><br/>
+
+            <h:outputText style="font-size:17px;" value="私たちはデータベースをドロップしています!"/><br/>
+
+            <h:outputText style="font-size:15px;" value="Watashitachiha dētabēsu o doroppu shite imasu!"/><br/>
+            <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+            <h:outputText style="float: right" class="wellcome" value="Siz kimsiniz?"/><br/>
         </div>
     </h:body>
 </html>

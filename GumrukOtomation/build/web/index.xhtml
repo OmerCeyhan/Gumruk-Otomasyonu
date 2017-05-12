@@ -18,13 +18,11 @@ and open the template in the editor.
         <nav role='navigation'>
             <center>
                 <ul>
-                    <li><a href="home.xhtml">Anasayfa</a></li>
-                    <li><a href="araclar.xhtml">Araçlar</a>
-                        <ul>
-                            <li><a href="aracbilgi.xhtml">Araç Bilgileri</a></li>
-                        </ul>
+                    <li><a href="#">Anasayfa</a></li>
+                    
+                    <li><a href="aracbilgi.xhtml">Araç Bilgileri</a>
                     </li>
-                    <li><a href="kayitekleme.xhtml">Kayıt Ekleme</a>
+                    <li><a href="#">Kayıt Ekleme</a>
                         <ul>
                             <li><a href="giriscikisekleme.xhtml">Giriş-Çıkış Kaydı Ekleme</a></li>
                             <li><a href="ihbarekleme.xhtml">İhbar Kaydı Ekleme</a></li>
@@ -36,11 +34,19 @@ and open the template in the editor.
                             <li><a href="ihbarsorgu.xhtml">İhbar Kaydı</a></li>
                         </ul>
                     </li>
-                    <li><a href="personel.xhtml">Personel Modülü</a>
+                    <li><a href="#">Personel Modülü</a>
+                        <ul>
+                            <li><a href="personelekle.xhtml">Personel Ekle</a></li>
+                        </ul>
                     </li>
+                    <li><a href="login.xhtml" style="float: right">Çıkış</a></li> 
+                    
                 </ul>
             </center>
         </nav>  
         <div class="icerik">
-        </div></h:body>
+            <h:outputText  class="wellcome" value="Hoşgeldin, "/>
+            <h:outputText  class="wellcome4" value="#{loginBean.username}"/>
+        </div>
+    </h:body>
 </html>
